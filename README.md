@@ -89,3 +89,8 @@ hm = sn.heatmap(data = data)
 pit.show()
 ```
 ![image](https://user-images.githubusercontent.com/120443233/229039077-dab2b2bd-6a60-4821-ac2e-ee70b3a14990.png)
+
+### Result :
+
+Thus we applied Bivariate/Multivariate Analysis Successfully.
+
