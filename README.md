@@ -1,4 +1,4 @@
-# workshop-Multivariate-analysis
+### workshop-Multivariate-analysis
 
 ### AIM:
 
@@ -6,91 +6,114 @@ To perform multivarient analysis on the given data set.
 
 ### ALGORITHM:
 
-### STEP1
-
 1.Clean the data
-
-### STEP2
 
 2.Remove outliers
 
-### STEP3
-
 3.Apply the skew function and Kurtosis
-
-### STEP4
 
 4.Apply Bivariate analysis on numerical and categorical
 
-### STEP5
+5.Apply Multivariate analysis.
 
-5.Apply Multivariate analysis
+### CODE
 
-### CODE: DETECTING NULL AS PD:
+Name:A.ARUVI
 
-![image](https://user-images.githubusercontent.com/120443233/229036837-5126b688-eb1b-4b60-8dd0-6e02e6229ccf.png)
+REG NO:212222230014
 
-### INFO:
+## Bivariate Analysis
+```
+import pandas as pd
+import seaborn as sns
+df=pd.read_csv("FlightInformation.csv")
+df
 
-![image](https://user-images.githubusercontent.com/120443233/229036873-4bee1d2d-306f-4d56-ac12-d970c3876a5c.png)
+df.isnull().sum()
 
-### REMOVING NULL DATA:
+df.info()
 
-![image](https://user-images.githubusercontent.com/120443233/229037736-5a90fed2-af36-424c-841e-01984ecf7e7d.png)
+df['Route']=df['Route'].fillna(df['Route'].mode()[0])
+df['Total_Stops']=df['Total_Stops'].fillna(df['Total_Stops'].mode()[0])
+df.isnull().sum()
 
-### KURTOSIS:
+sns.scatterplot(x=df["Price"],y=df["Airline"],data=df)
 
-![image](https://user-images.githubusercontent.com/120443233/229037880-8aec6ffd-acc4-472a-b217-5f5a645b2a8e.png)
+sns.boxplot(x=df['Price'],y=df['Source'],data=df)
 
-### SKEW:
+sns.barplot(x=df['Price'],y=df['Destination'],data=df)
 
-![image](https://user-images.githubusercontent.com/120443233/229037999-04367e2f-316d-482f-9044-25c1a39c0416.png)
+sns.displot(df,x="Source",hue="Destination")
+```
+## Multivariate Analysis 
+```
+df.corr()import numpy as np
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+df= pd.read_csv("FlightInformation.csv")
+df= np.random.randint(low = 1, high = 100, size = (10,10))
+print("The data to be plotted:\n")
+print(df)
+hm = sns.heatmap(data=df)
+plt.show()
+```
+
+### OUTPUT
+
+### Bivariate Analysis
+
+### DATA SET
+
+![image](https://user-images.githubusercontent.com/120443233/231785704-94361997-11b2-4cec-a62d-6a21e68f0fca.png)
+
+### INFO
+
+![image](https://user-images.githubusercontent.com/120443233/231785799-061acb18-0c90-4846-93ef-6067fd73916d.png)
+
+### DETECTING NULL AS PD
+
+![image](https://user-images.githubusercontent.com/120443233/231785993-f2f60cdd-fdab-4dc3-81ec-1ed8d0f42ceb.png)
+
+### REMOVING NULL DATA
+
+![image](https://user-images.githubusercontent.com/120443233/231786096-75c7adb3-a9b0-41db-be68-9635cd74f8ef.png)
 
 ### NUMERICAL & NUMERICAL:
 
-![image](https://user-images.githubusercontent.com/120443233/229038111-21d9bba8-4c48-4ad0-a8dc-f43c8e2eded1.png)
+### SCATTER_PLOT
+
+![image](https://user-images.githubusercontent.com/120443233/231786364-b073941d-d42e-40f7-91d7-13dd755dfc89.png)
 
 ### NUMERICAL & CATEGORIAL:
 
-### BOX PLOT:
+### BOX PLOT
 
-![image](https://user-images.githubusercontent.com/120443233/229038219-daa50b03-1e44-4c32-9e3e-51314a1aa207.png)
+![image](https://user-images.githubusercontent.com/120443233/231786556-5331b2a1-0f19-423e-8a49-ac037ecff198.png)
 
-### BAR PLOT:
+### BAR PLOT
 
-![image](https://user-images.githubusercontent.com/120443233/229038439-587381ee-ef6c-4f81-bfd8-dde44aa14e6c.png)
+![image](https://user-images.githubusercontent.com/120443233/231786789-d19c5a98-7e13-448f-be10-27a4d64b4993.png)
 
-### DIST PLOT:
+### DIST PLOT
 
-![image](https://user-images.githubusercontent.com/120443233/229038790-bf5fa454-6b38-4910-898d-2e3158ba58d9.png)
+![image](https://user-images.githubusercontent.com/120443233/231786947-b0e84358-31f0-42e0-a578-5b752da465ac.png)
 
-### MULTIVARIENT ANALYSIS:
+### MULTIVARIENT ANALYSIS
 
-### CORRELATION:
+### CORRELATION
 
-![image](https://user-images.githubusercontent.com/120443233/229038890-7fbd101c-4305-4230-8604-418cadf30e4e.png)
+![image](https://user-images.githubusercontent.com/120443233/231787136-37554db5-9bdc-4841-997d-a33d72a45496.png)
 
-### HEAT MAP:
-```
-import numpy as np
+### HEAT MAP
 
-import seaborn as sn
+![image](https://user-images.githubusercontent.com/120443233/231787273-353934b4-0ea2-4c55-95de-6180a8591e60.png)
 
-import matpIotIib.pypIot as pit
+### RESULT
 
-data= pd.read_csv("/content/Data_set.csv")
+Thus the Bivariate and Multivariate analysis is observerd for the given data set.
 
-data = np.random.randint(low = 1, high = 100, size = (10, 10)) print("The data to be plotted:\n")
 
-print(data)
 
-hm = sn.heatmap(data = data)
 
-pit.show()
-```
-![image](https://user-images.githubusercontent.com/120443233/229039077-dab2b2bd-6a60-4821-ac2e-ee70b3a14990.png)
-
-### Result :
-
-Thus we applied Bivariate/Multivariate Analysis Successfully.
 
